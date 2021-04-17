@@ -30,7 +30,7 @@ links :
 	mkdir links
 
 ls :
-	git ls-tree -r master --name-only | sort
+	git ls-tree -r main --name-only | sort
 
 verify : ${SCRIPTS}
 	test -f ${DISCOUNTLIB}
