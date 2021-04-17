@@ -21,7 +21,13 @@ OBJS:=lfs.o discount.o exec.o htmllua.o modlua.o script.o gumbo_util.o gumbo_par
 SCRIPTS:=script/ok/utility.lua script/ok/persistence.lua script/ok/json.lua script/ok/drive.lua script/ok/url.lua
 LUACHECK=${LUA} util/check.lua ${LUAC}
 
-all : verify htmllua
+all : script/ok links verify htmllua
+
+script/ok :
+	mkdir -p $@
+
+links :
+	mkdir links
 
 ls :
 	git ls-tree -r master --name-only | sort
@@ -51,7 +57,7 @@ gumbo.a :
 embed_gumbo.c :
 	find links/gumbo/gumbo/ -name "*.lua" -exec ${LUA} util/preload.lua links/gumbo/ embed_gumbo links/gumbo/gumbo.lua {} +
 
-%.o : %.c
+.c.o :
 	gcc ${CFLAGS} -I ${LUADIR} -I ${DISCOUNTDIR} ${LUAFLAGS} -c -o $@ $<
 
 gumbo_%.o : links/gumbo/gumbo/%.c
