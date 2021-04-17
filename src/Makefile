@@ -17,11 +17,11 @@ LUALIB=${LUADIR}/liblua.a
 LUAFLAGS:=-DLUA_USE_LINUX
 DISCOUNTDIR:=links/discount
 DISCOUNTLIB=${DISCOUNTDIR}/libmarkdown.a
-OBJS:=lfs.o discount.o exec.o mlua.o modlua.o script.o gumbo_util.o gumbo_parse.o embed_gumbo.o
+OBJS:=lfs.o discount.o exec.o htmllua.o modlua.o script.o gumbo_util.o gumbo_parse.o embed_gumbo.o
 SCRIPTS:=script/ok/utility.lua script/ok/persistence.lua script/ok/json.lua script/ok/drive.lua script/ok/url.lua
 LUACHECK=${LUA} util/check.lua ${LUAC}
 
-all : verify mlua
+all : verify htmllua
 
 ls :
 	git ls-tree -r master --name-only | sort
@@ -37,7 +37,7 @@ verify : ${SCRIPTS}
 	links/lua/src/luac -o /dev/null ${SCRIPTS}
 	touch $@
 
-mlua : ${OBJS} gumbo.a
+htmllua : ${OBJS} gumbo.a
 	gcc ${CFLAGS} $^ ${LUALIB} ${DISCOUNTLIB} -lm -ldl -o $@
 
 gumbo.a :
@@ -68,5 +68,5 @@ script.c : ${SCRIPTS}
 	${LUAC} -o - $^ | strliteral --ident script_lua > $@
 
 clean :
-	rm -f mlua modlua.c verify *.o script.c script/ok/*.lua gumbo.a embed_gumbo.c
+	rm -f htmllua modlua.c verify *.o script.c script/ok/*.lua gumbo.a embed_gumbo.c
 	rm -fr gumbo

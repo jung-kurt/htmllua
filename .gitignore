@@ -55,6 +55,7 @@ src/links
 src/script/ok
 src/embed_gumbo.c
 src/mlua
+src/htmllua
 src/modlua.c
 src/script.c
 src/verify
