@@ -63,6 +63,8 @@ prm = util.args(arg)
 
 if prm.template and prm.site and prm.url and prm.cache then
   err = drive.websitegenerate(prm.template, prm.site, prm.url, prm.cache)
+else
+  err = 'expecting --template, --site, --url, and --cache arguments'
 end
 
 if err then
