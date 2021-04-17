@@ -57,7 +57,7 @@ gumbo.a :
 embed_gumbo.c :
 	find links/gumbo/gumbo/ -name "*.lua" -exec ${LUA} util/preload.lua links/gumbo/ embed_gumbo links/gumbo/gumbo.lua {} +
 
-.c.o :
+%.o : %.c
 	gcc ${CFLAGS} -I ${LUADIR} -I ${DISCOUNTDIR} ${LUAFLAGS} -c -o $@ $<
 
 gumbo_%.o : links/gumbo/gumbo/%.c
