@@ -1,6 +1,6 @@
 # HTML Lua
 
-This project builds a version of Lua with tools to parse HTML5 and to render it
+This project builds a version of Lua with tools that parse HTML5 and render it
 from Markdown. The modules that implement this functionality are preloaded into
 Lua. This embedding eliminates the need to maintain external modules and search
 paths.
