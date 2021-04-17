@@ -1,7 +1,5 @@
 util = util or {}
 
--- error('bonkers in util')
-
 -- Iterator that returns successive hex dump lines from str.
 function string.hexdump(str)
   local pos = 1
@@ -278,25 +276,6 @@ util.mkdir = function(dirstr)
   lclmkdir(dirstr .. '/')
   return lfs.attributes(dirstr, 'mode') == 'directory'
 end
-
--- Return str. If length of str exceeds len, it will be truncated to that
--- length and an ellipsis will be appended. If middle is true and the length of
--- str exceeds len, then characters from the middle of the string are replaced
--- with an ellipsis.
--- function util.shortstr(str, len, middle)
---   if not len then
---     len = 24
---   end
---   if #str > len then
---     if middle then
---       local leftlen = len // 2
---       str = str:sub(1, leftlen) .. '…' .. str:sub(leftlen - len)
---     else
---       str = str:sub(1, len) .. '…'
---     end
---   end
---   return str
--- end
 
 -- Return str or a shortened form of str. If the length of str exceeds the sum
 -- of left and right, the string that is returned comprises the first left
