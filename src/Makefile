@@ -9,8 +9,8 @@
 #
 # The strliteral utility comes from https://github.com/mortie/strliteral
 
-CFLAGS=-std=gnu99 -O2 -Wall -fPIC
-LUADIR=links/lua/src
+CFLAGS:=-std=gnu99 -O2 -Wall -fPIC
+LUADIR:=links/lua/src
 LUA=${LUADIR}/lua
 LUAC=${LUADIR}/luac
 LUALIB=${LUADIR}/liblua.a
