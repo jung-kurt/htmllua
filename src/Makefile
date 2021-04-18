@@ -40,7 +40,7 @@ verify : ${SCRIPTS}
 	test -x ${LUAC}
 	which strliteral
 	which gcc
-	links/lua/src/luac -o /dev/null ${SCRIPTS}
+	${LUAC} -o /dev/null ${SCRIPTS}
 	touch $@
 
 htmllua : ${OBJS} gumbo.a
