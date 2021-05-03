@@ -59,3 +59,4 @@ src/htmllua
 src/modlua.c
 src/script.c
 src/verify
+src/jlua
