@@ -5,6 +5,7 @@
 
 int luaopen_lfs(lua_State *L);
 int lpipe3(lua_State *L);
+int fullmkdir(const char *dir);
 extern unsigned char script_lua[1];
 extern unsigned int script_lua_len;
 

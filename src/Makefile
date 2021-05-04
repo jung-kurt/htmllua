@@ -13,7 +13,7 @@ LUA=${LUADIR}/lua
 LUAC=${LUADIR}/luac
 LUALIB=${LUADIR}/liblua.a
 LUAFLAGS:=-DLUA_USE_LINUX
-OBJS:=lfs.o exec.o jlua.o modlua.o script.o
+OBJS:=lfs.o exec.o jlua.o modlua.o script.o dir.o
 SCRIPTS:=script/ok/utility.lua script/ok/json.lua script/ok/url.lua
 LUACHECK=${LUA} util/check.lua ${LUAC}
 
