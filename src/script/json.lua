@@ -387,3 +387,29 @@ end
 
 
 -- return json kwj
+
+local function code(fnc, val)
+  local ok, result = pcall(fnc, val)
+  if ok then
+    return result
+  end
+  return nil, result
+end
+
+function json.recencode(rec)
+  return code(json.encode, rec)
+  -- local ok, result = pcall(json.encode, rec)
+  -- if ok then
+  --   return result
+  -- end
+  -- return nil, result
+end
+
+function json.recdecode(str)
+  return code(json.decode, str)
+  -- local ok, result = pcall(json.decode, str)
+  -- if ok then
+  --   return result
+  -- end
+  -- return nil, result
+end
